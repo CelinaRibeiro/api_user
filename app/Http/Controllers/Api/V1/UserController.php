@@ -57,7 +57,7 @@ class UserController extends Controller
         
         $user = User::findOrFail($id);
 
-        $data = $request->all();
+        $data = $request->validated();
         $data['password'] = bcrypt($request->password);
         $user->update($data);
 
